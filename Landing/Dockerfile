@@ -1,5 +1,6 @@
 # Stage 1: Dependencies
 FROM node:20-alpine AS deps
+
 RUN apk add --no-cache libc6-compat
 
 WORKDIR /app
@@ -37,7 +38,6 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
-
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
@@ -46,7 +46,7 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
-# Set correct permissions
+# Set file owner to non-root user
 RUN chown -R nextjs:nodejs /app
 
 USER nextjs
@@ -54,11 +54,11 @@ USER nextjs
 EXPOSE 3012
 
 ENV PORT=3012
-ENV HOSTNAME="0.0.0.0"
+ENV HOSTNAME=0.0.0.0
 
 # Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=5 \
   CMD wget --no-verbose --tries=1 --spider http://localhost:3012/ || exit 1
 
+# Start the Next.js standalone server
 CMD ["node", "server.js"]
-
