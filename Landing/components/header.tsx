@@ -7,7 +7,8 @@ import { PharmaRadarLogo } from "./pharma-radar-logo"
 
 export function Header() {
   const handleRedirect = () => {
-    window.location.href = 'https://app.pharmaradar.pl'
+    // window.location.href = process.env.APP_PAGE || "http://localhost:5173";
+    window.open(process.env.NEXT_PUBLIC_APP_PAGE || "https://app.pharmaradar.pl", "_blank");
   }
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 animate-in fade-in slide-in-from-top duration-700">

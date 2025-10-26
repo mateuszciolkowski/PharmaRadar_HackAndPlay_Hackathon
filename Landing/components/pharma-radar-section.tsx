@@ -32,7 +32,7 @@ export function PharmaRadarSection() {
             {/* Left side - Image */}
             <div className="relative h-[400px] md:h-auto rounded-lg overflow-hidden">
               <Image
-                src="/images/pharma-example.jpeg"
+                src="/images/pharma-example.png"
                 alt="PharmaRadar w aptece"
                 fill
                 className="object-cover -rotate-1 scale-105 transition-transform duration-700 hover:scale-110"

@@ -6,7 +6,8 @@ import { ArrowRight, Sparkles } from "lucide-react"
 
 export function HeroSection() {
   const handleRedirect = () => {
-    window.location.href = 'https://app.pharmaradar.pl'
+    // window.location.href = 'https://app.pharmaradar.pl'
+    window.open(process.env.NEXT_PUBLIC_APP_PAGE || "https://app.pharmaradar.pl", "_blank");
   }
   return (
     <section className="relative bg-background pt-8 pb-16 md:pt-12 md:pb-20 lg:pt-16 lg:pb-24">

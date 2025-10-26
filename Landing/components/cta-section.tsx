@@ -6,10 +6,16 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 export function CTASection() {
   const { ref, isVisible } = useScrollAnimation(0.2)
+  console.log('Wartość zmiennej środowiskowej start:', process.env.NEXT_PUBLIC_APP_PAGE);
   
   const handleRedirect = () => {
-    window.location.href = 'https://app.pharmaradar.pl'
-  }
+  console.log('Wartość zmiennej środowiskowej:', process.env.NEXT_PUBLIC_APP_PAGE);
+
+  const url: string = process.env.NEXT_PUBLIC_APP_PAGE ?? "https://app.pharmaradar.pl";
+  console.log('Przekierowanie na:', url);
+  window.location.href = url;
+};
+
 
   return (
     <section ref={ref as React.RefObject<HTMLElement>} className="py-16 md:py-24 bg-primary text-primary-foreground">
