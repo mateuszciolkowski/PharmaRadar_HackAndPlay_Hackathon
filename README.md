@@ -38,22 +38,22 @@ Oto jak prezentuje się nasza aplikacja w działaniu:
 ### Strona główna (Landing Page)
 Przejrzysta i intuicyjna strona powitalna, która przedstawia kluczowe funkcje aplikacji Pharma Radar.
  
-![Widok strony głównej](Landing.png)
+![Widok strony głównej](Public/Landing.png)
  
 ### Sekcja wiadomości (News)
 Bądź na bieżąco z najważniejszymi informacjami z branży medycznej, agregowanymi i przetwarzanymi przez AI.
 
-![Widok wiadomości](News.png)
+![Widok wiadomości](Public/News.png)
  
 ### Baza leków (Pills)
 Łatwo przeglądaj i wyszukuj informacje o lekach w aptece oraz bądź na bieżąco z nowymi lekami.
 
-![Widok bazy leków](Pills.png)
+![Widok bazy leków](Public/Pills.png)
  
 ### Szczegóły leku (Pills-2)
 Dostęp do kompleksowych informacji o każdym leku równiez o cenach konkurencji.
  
-![Widok szczegółów leku](Pills-2.png)
+![Widok szczegółów leku](Public/Pills-2.png)
 
 ---
 
