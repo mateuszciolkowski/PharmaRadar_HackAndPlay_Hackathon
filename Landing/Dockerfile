@@ -38,6 +38,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
+# Create non-root user and group
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
@@ -56,9 +57,9 @@ EXPOSE 3012
 ENV PORT=3012
 ENV HOSTNAME=0.0.0.0
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=5 \
-  CMD wget --no-verbose --tries=1 --spider http://localhost:3012/ || exit 1
+# Health check (poprawiona wersja)
+HEALTHCHECK --interval=30s --timeout=50s --start-period=180s --retries=5 \
+  CMD wget --quiet --tries=1 --spider http://127.0.0.1:3012/ || exit 1
 
 # Start the Next.js standalone server
 CMD ["node", "server.js"]
